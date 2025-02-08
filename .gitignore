@@ -1,0 +1,26 @@
+# Ignore everything by default
+/*
+
+# Allow important config files
+# !.config/
+!.config/nvim
+# !.gitconfig
+!.zshrc
+!.p10k.zsh
+!.tmux.conf
+!.zprofile
+
+# Ignore unwanted subdirectories inside .config
+# .config/vscode/
+# .config/phpactor/
+# .config/iterm2/
+# .config/tmux/
+# .config/filezilla/
+
+# Ignore caches and temporary files
+.cache/
+.local/
+.Trash/
+.viminfo
+.zsh_history
+
