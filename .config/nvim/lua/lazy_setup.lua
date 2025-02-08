@@ -16,21 +16,24 @@ require("lazy").setup({
 
   -- Add nvim-dap configuration here
   {
-    'mfussenegger/nvim-dap',
+    "mfussenegger/nvim-dap",
     dependencies = {
-      'rcarriga/nvim-dap-ui',         -- For UI integration with nvim-dap
-      'theHamsta/nvim-dap-virtual-text', -- For virtual text support
+      "rcarriga/nvim-dap-ui", -- For UI integration with nvim-dap
+      "theHamsta/nvim-dap-virtual-text", -- For virtual text support
     },
     config = function()
-      require('dap')  -- Load the dap module
+      require "dap" -- Load the dap module
     end,
   },
 
- {
-    'echasnovski/mini.icons',
-    lazy = true
-  }
+  {
+    "echasnovski/mini.icons",
+    lazy = true,
+  },
 
+  {
+    "jwalton512/vim-blade",
+  },
 } --[[@as LazySpec]], {
   -- Configure any other `lazy.nvim` configuration options here
   install = { colorscheme = { "astrotheme", "habamax" } },
