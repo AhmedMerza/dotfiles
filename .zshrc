@@ -128,3 +128,9 @@ else
   export TERM=xterm-256color
 fi
 
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fpath+=~/.zsh/zsh-completions
+autoload -Uz compinit && compinit
+alias pa="php artisan"
