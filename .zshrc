@@ -129,8 +129,19 @@ else
 fi
 
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fpath+=~/.zsh/zsh-completions
 autoload -Uz compinit && compinit
+
 alias pa="php artisan"
+alias gs='git status'
+alias ga='git add'
+alias gc='git commit -m'
+alias gp='git push'
+alias gl='git log --oneline --graph --decorate --all'
+alias gco='git checkout'
+alias gb='git branch'
+alias c='composer'
+alias cda='composer dump-autoload'
+alias ci='composer install'
+alias cu='composer update'
