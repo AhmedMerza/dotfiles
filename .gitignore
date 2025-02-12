@@ -1,8 +1,12 @@
 # Ignore everything by default
 /*
 
-# Allow specific files inside .config
+# Allow .config directory itself
+!.config/
+
+# Allow nvim inside .config
 !.config/nvim/
+!.config/nvim/**
 
 # Allow important config files
 !.zshrc
