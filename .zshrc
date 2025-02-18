@@ -133,7 +133,10 @@ source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fpath+=~/.zsh/zsh-completions
 autoload -Uz compinit && compinit
 
+# php/laravel
 alias pa="php artisan"
+
+# git
 alias gs='git status'
 alias ga='git add'
 alias gc='git commit -m'
@@ -141,8 +144,15 @@ alias gp='git push'
 alias gl='git log --oneline --graph --decorate --all'
 alias gco='git checkout'
 alias gb='git branch'
+
+# composer
 alias c='composer'
 alias cda='composer dump-autoload'
 alias ci='composer install'
 alias cu='composer update'
+
+# dotfiles git alias
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+
+# python
+alias python='python3'
