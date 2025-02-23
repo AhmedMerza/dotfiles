@@ -7,6 +7,7 @@
 # Allow nvim inside .config
 !.config/nvim/
 !.config/nvim/**
+.config/nvim/lazy-lock.json
 
 # Allow important config files
 !.zshrc
