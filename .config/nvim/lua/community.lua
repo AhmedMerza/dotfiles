@@ -7,4 +7,5 @@ return {
   "AstroNvim/astrocommunity",
   { import = "astrocommunity.pack.lua" },
   { import = "astrocommunity.scrolling.mini-animate" },
+  { import = "astrocommunity.color.transparent-nvim" },
 }
