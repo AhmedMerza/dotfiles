@@ -68,6 +68,16 @@ sudo dnf install neovim
 brew install neovim
 ```
 
+Create Symlinks
+
+```bash
+# Create symlinks for the .zshrc, .p10k.zsh, and other necessary files
+ln -s ~/.cfg/.zshrc ~/.zshrc
+ln -s ~/.cfg/.p10k.zsh ~/.p10k.zsh
+ln -s ~/.cfg/.config/nvim ~/.config/nvim
+ln -s ~/.cfg/.config/tmux ~/.config/tmux
+```
+
 Install Dependencies for Zsh:
 After setting up the .zshrc file, install Zsh plugins (e.g., zsh-autosuggestions, zsh-syntax-highlighting) by running:
 
