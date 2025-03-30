@@ -24,9 +24,52 @@ git clone https://github.com/AhmedMerza/dotfiles.git ~
 cd ~
 ```
 
-### 2. Install plugins
+### 2. Install necessary tools
 
-Zsh Plugins: After setting up the .zshrc file, install Zsh plugins by running:
+Install Zsh:
+If you don't have Zsh installed, use the following command:
+
+```bash
+# On Ubuntu/Debian
+sudo apt update && sudo apt install zsh
+
+# On Fedora
+sudo dnf install zsh
+
+# On macOS (with Homebrew)
+brew install zsh
+```
+
+Install Tmux:
+If Tmux isn't installed, install it using:
+
+```bash
+# On Ubuntu/Debian
+sudo apt update && sudo apt install zsh
+
+# On Fedora
+sudo dnf install zsh
+
+# On macOS (with Homebrew)
+brew install zsh
+```
+
+Install Neovim:
+If Neovim isn't installed, use:
+
+```bash
+# On Ubuntu/Debian
+sudo apt install neovim
+
+# On Fedora
+sudo dnf install neovim
+
+# On macOS (with Homebrew)
+brew install neovim
+```
+
+Install Dependencies for Zsh:
+After setting up the .zshrc file, install Zsh plugins (e.g., zsh-autosuggestions, zsh-syntax-highlighting) by running:
 
 ```bash
 # Install Oh My Zsh if not already installed
@@ -36,7 +79,15 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 source ~/.zshrc
 ```
 
-Tmux Plugins: After setting up tmux.conf, use Tmux Plugin Manager (TPM) to install the necessary plugins by starting a Tmux session and pressing prefix + I to install them.
+Install TPM for Tmux:
+To install Tmux Plugin Manager (TPM), run:
+
+```bash
+# Clone TPM into the correct directory
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+```
+
+After this, install Tmux plugins by starting a Tmux session and pressing the prefix + I to install them.
 
 ```bash
 # In your tmux session, press C-Space + I to install plugins
@@ -45,7 +96,7 @@ Tmux Plugins: After setting up tmux.conf, use Tmux Plugin Manager (TPM) to insta
 Neovim Plugins: Install plugins for Neovim using your Lazy.
 
 ```bash
-# In Neovim, run :LazySync
+# In Neovim, run :LazySync to install all plugins
 ```
 
 ### 3. Switch from Bash to Zsh
