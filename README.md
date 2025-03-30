@@ -12,6 +12,7 @@ Make sure you have the following tools installed on your system before using the
 - **Tmux Plugin Manager (TPM)**: Used to manage tmux plugins.
 - **Powerlevel10k**: A Zsh theme for a fast and highly customizable prompt.
 - **Zsh Plugins**: `zsh-autosuggestions`, `zsh-syntax-highlighting`, and others for enhanced user experience.
+- **Lazygit: A simple terminal UI for git commands.**
 
 ## Setup
 
@@ -20,7 +21,7 @@ Make sure you have the following tools installed on your system before using the
 To get started, clone this repository into your home directory:
 
 ```bash
-git clone https://github.com/AhmedMerza/dotfiles.git ~
+git clone https://github.com/YourGitHubUsername/YourRepoName.git ~/.cfg
 cd ~
 ```
 
@@ -66,6 +67,17 @@ sudo dnf install neovim
 
 # On macOS (with Homebrew)
 brew install neovim
+```
+
+Install Lazygit: To install Lazygit, follow the instructions for your system:
+
+```bash
+# On Fedora/RHEL
+sudo dnf copr enable atim/lazygit -y
+sudo dnf install lazygit
+
+# On macOS (with MacPorts)
+sudo port install lazygit
 ```
 
 Create Symlinks
