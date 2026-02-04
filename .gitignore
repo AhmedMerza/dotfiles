@@ -1,16 +1,19 @@
 # Ignore everything by default
 /*
 
-# Allow .config directory itself
-!.config/
+# Allow dotfiles repo essentials
+!.gitignore
+!README.md
 
-# Allow nvim inside .config
-!.config/nvim/
-!.config/nvim/**
-.config/nvim/lazy-lock.json
+# Allow stow directories
+!nvim/
+!ghostty/
+!tmux/
+!zsh/
+!git/
 
-# Allow important config files
-!.zshrc
-!.p10k.zsh
-!.tmux.conf
-# !.gitconfig
+# Ignore generated files
+nvim/.config/nvim/lazy-lock.json
+
+# Ignore zsh plugin internals (keep only essential files)
+zsh/plugins/*/.git

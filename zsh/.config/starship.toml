@@ -1,0 +1,24 @@
+add_newline = true
+format = """
+$username\
+$hostname\
+$directory\
+$git_branch$git_state$git_status\
+$cmd_duration\
+$line_break\
+$jobs\
+$character"""
+
+[username]
+style_user = "yellow"
+show_always = true
+
+[hostname]
+ssh_only = true
+style = "green"
+
+[directory]
+style = "cyan"
+truncation_length = 3
+read_only = " "
+

@@ -1,175 +1,109 @@
 # Dotfiles
 
-This repository contains my personal dotfiles for an optimized development environment, including configurations for **Zsh**, **Tmux**, and **Neovim**. It is tailored to work with my preferred tools and settings, providing a seamless experience across various development tasks.
+Personal dotfiles for an optimized development environment, managed with [GNU Stow](https://www.gnu.org/software/stow/).
+
+## What's Included
+
+- **Zsh** - Shell config with Starship prompt and plugins
+- **Neovim** - AstroNvim-based configuration
+- **Tmux** - Terminal multiplexer with session management
+- **Ghostty** - Terminal emulator config
 
 ## Prerequisites
 
-Make sure you have the following tools installed on your system before using these dotfiles:
-
-- **Zsh**: The default shell (configured with Powerlevel10k, Oh My Zsh, and other plugins).
-- **Tmux**: A terminal multiplexer for managing multiple terminal windows.
-- **Neovim**: A modern text editor that is part of my development workflow.
-- **Tmux Plugin Manager (TPM)**: Used to manage tmux plugins.
-- **Powerlevel10k**: A Zsh theme for a fast and highly customizable prompt.
-- **Zsh Plugins**: `zsh-autosuggestions`, `zsh-syntax-highlighting`, and others for enhanced user experience.
-- **Lazygit: A simple terminal UI for git commands.**
-
-## Setup
-
-### 1. Clone this repository
-
-To get started, clone this repository into your home directory:
+Install the following tools:
 
 ```bash
-git clone https://github.com/YourGitHubUsername/YourRepoName.git ~/.cfg
-cd ~
+# macOS (Homebrew)
+brew install stow zsh neovim tmux starship lazygit
+
+# Ubuntu/Debian
+sudo apt install stow zsh neovim tmux
+# Install starship separately: https://starship.rs
+
+# Fedora
+sudo dnf install stow zsh neovim tmux
 ```
 
-### 2. Install necessary tools
+## Installation
 
-Install Zsh:
-If you don't have Zsh installed, use the following command:
+### 1. Clone the repository
 
 ```bash
-# On Ubuntu/Debian
-sudo apt update && sudo apt install zsh
-
-# On Fedora
-sudo dnf install zsh
-
-# On macOS (with Homebrew)
-brew install zsh
+git clone https://github.com/YourGitHubUsername/dotfiles.git ~/dotfiles
+cd ~/dotfiles
 ```
 
-Install Tmux:
-If Tmux isn't installed, install it using:
+### 2. Stow the configs
+
+Use GNU Stow to symlink configs to your home directory:
 
 ```bash
-# On Ubuntu/Debian
-sudo apt update && sudo apt install zsh
+# Stow all configs
+stow nvim ghostty tmux zsh
 
-# On Fedora
-sudo dnf install zsh
-
-# On macOS (with Homebrew)
-brew install zsh
+# Or stow individually
+stow nvim
+stow zsh
 ```
 
-Install Neovim:
-If Neovim isn't installed, use:
+This creates symlinks like `~/.config/nvim` → `~/dotfiles/nvim/.config/nvim`
+
+### 3. Install Tmux plugins
 
 ```bash
-# On Ubuntu/Debian
-sudo apt install neovim
-
-# On Fedora
-sudo dnf install neovim
-
-# On macOS (with Homebrew)
-brew install neovim
-```
-
-Install Lazygit: To install Lazygit, follow the instructions for your system:
-
-```bash
-# On Fedora/RHEL
-sudo dnf copr enable atim/lazygit -y
-sudo dnf install lazygit
-
-# On macOS (with MacPorts)
-sudo port install lazygit
-```
-
-Create Symlinks
-
-```bash
-# Create symlinks for the .zshrc, .p10k.zsh, and other necessary files
-ln -s ~/.cfg/.zshrc ~/.zshrc
-ln -s ~/.cfg/.p10k.zsh ~/.p10k.zsh
-ln -s ~/.cfg/.config/nvim ~/.config/nvim
-ln -s ~/.cfg/.config/tmux ~/.config/tmux
-```
-
-Install Dependencies for Zsh:
-After setting up the .zshrc file, install Zsh plugins (e.g., zsh-autosuggestions, zsh-syntax-highlighting) by running:
-
-```bash
-# Install Oh My Zsh if not already installed
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
-# Install Zsh plugins (e.g., zsh-autosuggestions, zsh-syntax-highlighting)
-source ~/.zshrc
-```
-
-Install TPM for Tmux:
-To install Tmux Plugin Manager (TPM), run:
-
-```bash
-# Clone TPM into the correct directory
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 ```
 
-After this, install Tmux plugins by starting a Tmux session and pressing the prefix + I to install them.
+Then in tmux, press `prefix + I` to install plugins.
+
+### 4. Set Zsh as default shell
 
 ```bash
-# In your tmux session, press C-Space + I to install plugins
-```
-
-Neovim Plugins: Install plugins for Neovim using your Lazy.
-
-```bash
-# In Neovim, run :LazySync to install all plugins
-```
-
-### 3. Switch from Bash to Zsh
-
-Now that the plugins and configurations are set up, switch to Zsh as your default shell:
-
-```bash
-# Change the default shell to Zsh
 chsh -s $(which zsh)
 ```
 
-Note: If you’re using a system that requires sudo for user modifications, you may need to prepend sudo to the command above. Additionally, make sure you have Zsh installed on your system before changing the default shell.
+Restart your terminal for changes to take effect.
 
-Once the shell is changed, restart your terminal for Zsh to take effect.
+## Structure
 
-### 4. Customize your environment
-
-#### Zsh: Your Zsh prompt will use Powerlevel10k by default. You can customize it by running:
-
-```bash
-p10k configure
 ```
-
-Tmux: Tmux is set up to use plugins such as tmux-resurrect, tmux-continuum, and others for an enhanced session management experience.
-
-Neovim: The configuration is designed for modern development workflows, particularly for PHP (Laravel) and general programming tasks.
+dotfiles/
+├── nvim/
+│   └── .config/nvim/       # Neovim config (AstroNvim)
+├── ghostty/
+│   └── .config/ghostty/    # Ghostty terminal config
+├── tmux/
+│   └── .config/tmux/       # Tmux config
+└── zsh/
+    ├── .zshrc              # Zsh config
+    ├── .config/starship.toml
+    └── plugins/            # Zsh plugins
+        ├── zsh-autosuggestions
+        ├── zsh-completions
+        └── zsh-syntax-highlighting
+```
 
 ## Key Features
 
-### Zsh Configuration
+### Zsh
+- **Starship prompt** - Fast, minimal, customizable
+- **Autosuggestions** - History-based command suggestions
+- **Syntax highlighting** - Commands highlighted as you type
+- **Custom aliases** - `gs` (git status), `pa` (php artisan), etc.
 
-- Powerlevel10k Theme: Fast and beautiful prompt for Zsh with automatic time-stamping, git status display, and more.
-- Autosuggestions: Command auto-suggestions based on your history.
-- Syntax Highlighting: Highlights commands as you type for improved readability.
-- Custom Aliases: Shortcuts for common tasks (e.g., gs for git status, pa for php artisan).
+### Tmux
+- **Prefix**: `C-Space`
+- **Mouse support** enabled
+- **Session persistence** with tmux-resurrect and tmux-continuum
+- **Pane resizing**: `Alt + h/j/k/l`
 
-### Tmux Configuration
-
-- Prefix Key: Changed to C-Space for better compatibility.
-- Mouse Support: Enabled for easier pane resizing and navigation.
-- Session Management: Uses tmux-resurrect and tmux-continuum for session persistence.
-- Pane Resizing: Customize pane sizes using Alt + h/j/k/l.
-- Window Management: Split windows and new windows open in the current working directory.
-
-### Neovim Configuration
-
-- AstroNvim Setup: An opinionated Neovim setup with a focus on modern development.
-- PHP Development: Integrated with Laravel development workflow.
-- Syntax Highlighting and Auto-completion: Leveraging Neovim's capabilities for a productive experience.
-- True Color Support: Neovim supports 24-bit color for a better UI.
+### Neovim
+- **AstroNvim** base configuration
+- **Copilot** integration
+- **LSP** support for multiple languages
+- **Treesitter** syntax highlighting
 
 ## License
 
-Feel free to use and modify these dotfiles for your own setup. This repository is licensed under the MIT License.
+MIT
