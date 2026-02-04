@@ -10,10 +10,13 @@ $git_status\
 $php\
 $nodejs\
 $python\
+$docker_context\
 $cmd_duration\
 $line_break\
 $jobs\
 $character"""
+
+right_format = """$time"""
 
 [username]
 style_user = "yellow bold"
@@ -31,25 +34,27 @@ style = "cyan bold"
 truncation_length = 3
 truncate_to_repo = true
 read_only = " 󰌾"
+home_symbol = "󰋜 ~"
+format = "[$path]($style)[$read_only]($read_only_style) "
 
 [git_branch]
 style = "purple bold"
-format = "[$symbol$branch]($style) "
-symbol = " "
+format = "[$symbol$branch(:$remote_branch)]($style) "
+symbol = "󰘬 "
 
 [git_status]
-format = '([\[$all_status$ahead_behind\]]($style) )'
+format = '([$all_status$ahead_behind]($style) )'
 style = "red bold"
-conflicted = "="
-ahead = "⇡${count}"
-behind = "⇣${count}"
-diverged = "⇕⇡${ahead_count}⇣${behind_count}"
-untracked = "?${count}"
-stashed = "📦"
-modified = "!${count}"
-staged = "+${count}"
-renamed = "»${count}"
-deleted = "✘${count}"
+conflicted = "󰞇 "
+ahead = "󰜷 ${count}"
+behind = "󰜮 ${count}"
+diverged = "󰃻 ${ahead_count}󰜷 ${behind_count}󰜮 "
+untracked = "󰋗 ${count}"
+stashed = "󰆓 "
+modified = "󰏫 ${count}"
+staged = "󰐖 ${count}"
+renamed = "󰑕 ${count}"
+deleted = "󰍷 ${count}"
 
 [git_state]
 format = '\([$state( $progress_current/$progress_total)]($style)\) '
@@ -57,8 +62,9 @@ style = "yellow"
 
 [cmd_duration]
 min_time = 2000
-format = "[$duration]($style) "
+format = "[󰔟 $duration]($style) "
 style = "yellow"
+show_notifications = false
 
 [php]
 format = "[$symbol($version)]($style) "
@@ -78,3 +84,21 @@ style = "yellow bold"
 [character]
 success_symbol = "[❯](green bold)"
 error_symbol = "[❯](red bold)"
+vimcmd_symbol = "[❮](purple bold)"
+
+[time]
+disabled = false
+format = "[$time]($style)"
+style = "dimmed white"
+time_format = "%H:%M"
+
+[docker_context]
+format = "[$symbol$context]($style) "
+symbol = "󰡨 "
+style = "blue bold"
+only_with_files = true
+
+[jobs]
+symbol = "󰜎 "
+style = "bold blue"
+format = "[$symbol$number]($style) "
