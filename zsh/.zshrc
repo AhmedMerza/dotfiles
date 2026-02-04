@@ -84,5 +84,5 @@ export PHP_INI_SCAN_DIR="/Users/ahmedmerza/.config/herd-lite/bin:$PHP_INI_SCAN_D
 
 # ---- Auto-start tmux ----
 if command -v tmux &> /dev/null && [ -z "$TMUX" ] && [[ $- == *i* ]]; then
-  tmux new-session -A -s main
+  tmux new-session
 fi
