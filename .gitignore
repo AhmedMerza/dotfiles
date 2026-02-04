@@ -12,6 +12,10 @@
 !zsh/
 !git/
 
+# Allow scripts
+!scripts/
+!install.sh
+
 # Ignore generated files
 nvim/.config/nvim/lazy-lock.json
 

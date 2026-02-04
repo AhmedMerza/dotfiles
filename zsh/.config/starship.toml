@@ -1,24 +1,80 @@
 add_newline = true
+
 format = """
 $username\
 $hostname\
 $directory\
-$git_branch$git_state$git_status\
+$git_branch\
+$git_state\
+$git_status\
+$php\
+$nodejs\
+$python\
 $cmd_duration\
 $line_break\
 $jobs\
 $character"""
 
 [username]
-style_user = "yellow"
+style_user = "yellow bold"
+style_root = "red bold"
 show_always = true
+format = "[$user]($style) "
 
 [hostname]
 ssh_only = true
-style = "green"
+style = "green bold"
+format = "@ [$hostname]($style) "
 
 [directory]
-style = "cyan"
+style = "cyan bold"
 truncation_length = 3
-read_only = " "
+truncate_to_repo = true
+read_only = " 󰌾"
 
+[git_branch]
+style = "purple bold"
+format = "[$symbol$branch]($style) "
+symbol = " "
+
+[git_status]
+format = '([\[$all_status$ahead_behind\]]($style) )'
+style = "red bold"
+conflicted = "="
+ahead = "⇡${count}"
+behind = "⇣${count}"
+diverged = "⇕⇡${ahead_count}⇣${behind_count}"
+untracked = "?${count}"
+stashed = "📦"
+modified = "!${count}"
+staged = "+${count}"
+renamed = "»${count}"
+deleted = "✘${count}"
+
+[git_state]
+format = '\([$state( $progress_current/$progress_total)]($style)\) '
+style = "yellow"
+
+[cmd_duration]
+min_time = 2000
+format = "[$duration]($style) "
+style = "yellow"
+
+[php]
+format = "[$symbol($version)]($style) "
+symbol = " "
+style = "147 bold"
+
+[nodejs]
+format = "[$symbol($version)]($style) "
+symbol = " "
+style = "green bold"
+
+[python]
+format = "[$symbol($version)]($style) "
+symbol = " "
+style = "yellow bold"
+
+[character]
+success_symbol = "[❯](green bold)"
+error_symbol = "[❯](red bold)"

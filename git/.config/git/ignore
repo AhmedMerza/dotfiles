@@ -1,0 +1,26 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Editors
+*.swp
+*.swo
+*~
+.idea/
+.vscode/
+*.sublime-workspace
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Dependencies (when not needed)
+node_modules/
+vendor/
+
+# Build artifacts
+*.log
+*.tmp
